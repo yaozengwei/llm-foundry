@@ -18,6 +18,9 @@ from llmfoundry.models.mpt import (
 )
 from llmfoundry.registry import models
 
+# for experiments:
+from llmfoundry.models.hf import TransMLAHFCausalLM
+
 models.register('mpt_causal_lm', func=ComposerMPTCausalLM)
 models.register('hf_causal_lm', func=ComposerHFCausalLM)
 models.register('hf_t5', func=ComposerHFT5)
@@ -27,6 +30,9 @@ models.register('openai_chat', func=OpenAIChatAPIEvalWrapper)
 models.register('fmapi_chat', func=FMAPIChatAPIEvalWrapper)
 models.register('finetune_embedding_model', func=FinetuneEmbeddingModel)
 models.register('contrastive_lm', func=ContrastiveModel)
+
+# for experiments:
+models.register('trans_mla_hf_causal_lm', func=TransMLAHFCausalLM)
 
 __all__ = [
     'ComposerHFCausalLM',
@@ -40,4 +46,6 @@ __all__ = [
     'FMAPICasualLMEvalWrapper',
     'OpenAIChatAPIEvalWrapper',
     'FMAPIChatAPIEvalWrapper',
+    # for experiments:
+    'TransMLAHFCausalLM'
 ]

@@ -10,6 +10,9 @@ from llmfoundry.models.hf.hf_fsdp import (
 )
 from llmfoundry.models.hf.hf_t5 import ComposerHFT5
 
+# for experiments:
+from llmfoundry.models.hf.trans_mla_hf_causal_lm import TransMLAHFCausalLM
+
 __all__ = [
     'BaseHuggingFaceModel',
     'ComposerHFCausalLM',
@@ -17,4 +20,6 @@ __all__ = [
     'prepare_hf_causal_lm_model_for_fsdp',
     'prepare_hf_enc_dec_model_for_fsdp',
     'prepare_hf_model_for_fsdp',
+    # for experiments:
+    'TransMLAHFCausalLM'
 ]
