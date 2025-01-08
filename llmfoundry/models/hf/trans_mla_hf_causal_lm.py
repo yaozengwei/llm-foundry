@@ -24,6 +24,9 @@ class TransMLAHFCausalLM(ComposerHFCausalLM):
     def transform_model(self, model: PreTrainedModel) -> PreTrainedModel:
         if isinstance(model, Qwen2ForCausalLM):
             new_model = TransMLAQwen2ForCausalLM(model.config)
+            for name, param in new_model.named_modules():
+                if "k_up_proj" in name or "v_up_proj" in name:
+                    param.weight.data.fill_(0)
         else:
             raise TypeError(f"Model class of {type(model)} is not supported.")
         return new_model
