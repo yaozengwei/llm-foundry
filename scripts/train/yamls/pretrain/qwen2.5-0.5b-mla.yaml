@@ -19,6 +19,8 @@ model:
   pretrained_model_name_or_path: ${variables.hf_path}
   pretrained: false  # false: only use the architecture; true: initialize with pretrained weights
   use_flash_attention_2: true
+  config_overrides:
+    kv_dropout: 0.05  # would need to add kv_dropout attribute to huggingface config file
 
 # Tokenizer
 tokenizer:
